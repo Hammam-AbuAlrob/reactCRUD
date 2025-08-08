@@ -8,14 +8,14 @@ import React from 'react'
 import { Route, Routes } from "react-router-dom"
 import Footer from "./components/footer/Footer.jsx"
 import Navbar from "./components/navbar/Navbar.jsx"
-import Home from "./pages/home/Home.jsx"
 import Create from "./pages/user/Create.jsx"
 import About from "./pages/about/About.jsx"
-
+import Home from './pages/home/Home.jsx'
 function App() {
   return (
     <>
       <Navbar />
+      <div className='container'>
       <Routes>
         <Route path='/' element={<Home/>} />      
         <Route path='/users' element={<Home/>} />
@@ -23,6 +23,7 @@ function App() {
         <Route path='/about' element={<About/>} />
 
       </Routes>
+      </div>
      <Footer/>
     </>
   )

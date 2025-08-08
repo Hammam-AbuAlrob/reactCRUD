@@ -1,9 +1,12 @@
 import React from 'react'
-
-function home() {
+import Index from '../user/Index.jsx'
+function Home() {
   return (
-    <div>home</div>
+    <div>
+      <h2>home</h2>
+      <Index/>
+    </div>
   )
 }
 
-export default home
+export default Home
