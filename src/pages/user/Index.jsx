@@ -1,30 +1,10 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import Loader from '../../components/loader/Loader';
-
+import useFetch from '../../components/custom/useFetch';
 function Index() {
 
-  const [users,setUsers] = useState([]);
-  const [error,setError] = useState(null);
-  const [isLoading,setIsLoading] = useState(true);
-
-  const getUsers = async ()=>{
-    try{
-      const response = await axios.get(`${import.meta.env.VITE_BURL}/users`);
-      console.log(response.data.users);
-      setUsers(response.data.users);
-    }
-    catch(err){
-      setError(err);
-    }
-    finally{
-      setIsLoading(false);
-    }
-  }
-
-  useEffect(()=>{
-    getUsers();
-  },[]);
+  const {users,error,isLoading} = useFetch("users");
 
   if(isLoading) return <Loader/>
   if(error) return <p className='text-danger'>{error.message}</p>
@@ -43,3 +23,4 @@ function Index() {
 }
 
 export default Index
+/* custom hook بما انه الكود رح يتكرر، رح نحطه بجلد اخر اسمه  */
